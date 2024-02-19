@@ -1,0 +1,40 @@
+//import java.text.NumberFormat;
+import java.util.Scanner;
+
+class Sales {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int SALESPEOPLE = 5;
+        int [] sales = new int[SALESPEOPLE];
+        
+        for (int i=0; i<SALESPEOPLE; i++) {
+            System.out.println("Person " + (i+1));
+            sales[i] = sc.nextInt();
+        }
+        
+        for (int i=0; i<SALESPEOPLE; i++) {
+            System.out.println("SALESPERSON " + (i+1) + "'s sales: " + sales[i]);
+        }
+        
+        //Average Sales
+        int avgSales = 0;
+        for (int i=0; i<SALESPEOPLE; i++) {
+            avgSales += sales[i]/SALESPEOPLE;
+        }
+        
+        System.out.println("Average Sales: " + avgSales);
+        
+        //Maximum sales
+        int maxSale = sales[0];
+        int maxPersonIndex = 0;
+        for (int i=1; i<SALESPEOPLE; i++) {
+            if (maxSale < sales[i]) {
+                maxSale = sales[i];
+                maxPersonIndex = i;
+            }
+        }
+        
+        System.out.println("Max sale of " + maxSale + " is done by " + (maxPersonIndex+1));
+        
+    }
+}
